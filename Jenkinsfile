@@ -1,3 +1,5 @@
+agent {
+	docker { image 'node:7-alpine' }
 node {
     // Setup Variables for Pipeline Build
     // Specify the micro-service name
@@ -18,9 +20,6 @@ node {
     aceBaseImageTag="latest"
 
     try {
-	agent {
-		docker { image 'node:7-alpine' }
-	}
         stage ('Clone') {
         	checkout scm
         }
@@ -92,4 +91,5 @@ node {
         currentBuild.result = 'FAILED'
         throw err
     }
+}
 }
