@@ -18,6 +18,9 @@ node {
     aceBaseImageTag="latest"
 
     try {
+	agent {
+		docker { image 'node:7-alpine' }
+	}
         stage ('Clone') {
         	checkout scm
         }
